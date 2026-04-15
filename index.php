@@ -1,11 +1,3 @@
-<?php
-
-    include 'conexao.php';
-
-    $sql = " SELECT * FROM aluno ";
-    $consulta = $conexao->query($sql);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,32 +7,12 @@
 </head>
 <body>
 
-    <form action="inserir.php" method="get">
-        Nome: <input type="text" name="nome">
-        Idade: <input type="text" name="idade">
-        <input type="submit" value="Salvar">
+    <form action="logar.php" method="post">
+        Login: <input type="text" name="login">
+        Senha: <input type="password" name="senha">
+        <input type="submit" value="Entrar">
     </form>
-    
-    <br><br>
+        
 
-    <table width="100%" border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Ações</th>
-        </tr>
-        <?php while ($linha = $consulta->fetch(PDO::FETCH_OBJ)) { ?>
-            <tr>
-                <td><?php echo $linha->id ?></td>
-                <td><?php echo $linha->nome ?></td>
-                <td><?php echo $linha->idade ?></td>
-                <td>
-                    <a href="excluir.php?id=<?php echo $linha->id ?>">Excluir</a>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
 </body>
-</html>     
-
+</html>
